@@ -208,6 +208,28 @@
                     app:layout_constraintStart_toEndOf="@+id/textView_difficulty"
                     app:layout_constraintTop_toBottomOf="@+id/textView_minTime" />
 
+                <TextView
+                    android:id="@+id/textView_learningCurve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Learnability:"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_difficulty" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar_learningCurve"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toEndOf="@+id/textView_learningCurve"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_difficulty" />
+
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
