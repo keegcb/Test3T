@@ -15,15 +15,8 @@ public class AddGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_game);
         Toolbar toolbar = findViewById(R.id.toolbar_new_game);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Add Game to Collection");
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
 }

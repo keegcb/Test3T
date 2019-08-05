@@ -15,10 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper gameDb;
 
-    private static Button button_add_game;
-    private static Button button_add_player;
-    private static Button button_add_group;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_new_game);
         setSupportActionBar(toolbar);
 
-        //addGameButtonListener();
-        //addPlayerButtonListener();
-        //addGroupButtonListener();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,47 +34,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*
-    public void addGameButtonListener(){
-        button_add_game = (Button)findViewById(R.id.action_add_game);
-        button_add_game.setOnClickListener(
-                new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v){
-                        Intent intent = new Intent(".AddGameActivity");
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-
-    public void addPlayerButtonListener(){
-        button_add_player = (Button)findViewById(R.id.action_add_player);
-        button_add_player.setOnClickListener(
-                new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v){
-                        Intent intent = new Intent(".AddPlayerActivity");
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-
-    public void addGroupButtonListener(){
-        button_add_group = (Button)findViewById(R.id.action_add_group);
-        button_add_group.setOnClickListener(
-                new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v){
-                        Intent intent = new Intent(".AddGroupActivity");
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,13 +47,23 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_add_game:
+                Intent intentGame = new Intent(this, AddGameActivity.class);
+                startActivity(intentGame);
+                return true;
+            case R.id.action_add_player:
+                Intent intentPlayer = new Intent(this, AddPlayerActivity.class);
+                startActivity(intentPlayer);
+                return true;
+            case R.id.action_add_group:
+                Intent intentGroup = new Intent(this, AddGroupActivity.class);
+                startActivity(intentGroup);
+                return true;
+            case R.id.action_settings:
+                System.out.println("No settings page set up yet");
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
