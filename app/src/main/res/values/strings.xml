@@ -9,12 +9,14 @@
     <string name="title_activity_add_group">AddGroupActivity</string>
     <string name="toolbar_new_game">New Game</string>
     <string-array name="spinner_min_seats">
+        <item></item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
     </string-array>
     <string-array name="spinner_max_seats">
+        <item></item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
@@ -24,6 +26,7 @@
         <item>8</item>
     </string-array>
     <string-array name="spinner_play_time">
+        <item></item>
         <item>10</item>
         <item>20</item>
         <item>30</item>
@@ -44,5 +47,134 @@
         <item>180</item>
         <item>190</item>
         <item>200</item>
+    </string-array>
+    <string-array name="spinner_game_type">
+        <item></item>
+        <item>Abstract Strategy Games</item>
+        <item>Customizable Games</item>
+        <item>Thematic Games</item>
+        <item>Family Games</item>
+        <item>Children Games</item>
+        <item>Party Games</item>
+        <item>Strategy Games</item>
+        <item>Wargames</item>
+    </string-array>
+    <string-array name="spinner_game_category">
+        <item></item>
+        <item>City Building</item>
+        <item>Civilization</item>
+        <item>Educational</item>
+        <item>Puzzle</item>
+        <item>Racing</item>
+        <item>Territory Building</item>
+        <item>Transportation</item>
+        <item>Card Game</item>
+        <item>Collectible Components</item>
+        <item>Dice</item>
+        <item>Electronic</item>
+        <item>Miniatures</item>
+        <item>Book</item>
+        <item>Expansion for Base-game</item>
+        <item>Game System</item>
+        <item>Action/Dexterity</item>
+        <item>Bluffing</item>
+        <item>Deduction</item>
+        <item>Economic</item>
+        <item>Math + Numbers</item>
+        <item>Memory</item>
+        <item>Negotiation</item>
+        <item>Real-time</item>
+        <item>Spatial Analysis</item>
+        <item>Trivia</item>
+        <item>Word</item>
+        <item>Adventure</item>
+        <item>American West</item>
+        <item>Ancient</item>
+        <item>Animals</item>
+        <item>Arabian</item>
+        <item>Environmental</item>
+        <item>Exploration</item>
+        <item>Comic Book/Strip</item>
+        <item>Movies/TV/Radio Theme</item>
+        <item>Music</item>
+        <item>Novel-based</item>
+        <item>Video Game Theme</item>
+        <item>Fantasy</item>
+        <item>Farming</item>
+        <item>Fighting</item>
+        <item>Horror</item>
+        <item>Humor</item>
+        <item>Industry/Manufacturing</item>
+        <item>Mafia</item>
+        <item>Medieval</item>
+        <item>Murder/Mystery</item>
+        <item>Mythology</item>
+        <item>Nautical</item>
+        <item>Pirates</item>
+        <item>Political</item>
+        <item>Prehistoric</item>
+        <item>Racing</item>
+        <item>Religious</item>
+        <item>Renaissance</item>
+        <item>Science Fiction</item>
+        <item>Space Exploration</item>
+        <item>Spies/Secret Agents</item>
+        <item>Sports</item>
+        <item>Trains</item>
+        <item>Transportation</item>
+        <item>Travel</item>
+    </string-array>
+    <string-array name="spinner_game_mechanism">
+        <item></item>
+        <item>Acting</item>
+        <item>Action/Movement Programming</item>
+        <item>Action Point Allowance System</item>
+        <item>Area control/Area influence</item>
+        <item>Area Enclosure</item>
+        <item>Area Movement</item>
+        <item>Area-impulse</item>
+        <item>Auction/Bidding</item>
+        <item>Betting/Wagering</item>
+        <item>Campaign/Battle Card Driven</item>
+        <item>Card Drafting</item>
+        <item>Chit-Pull System</item>
+        <item>Co-op</item>
+        <item>Commodity Speculation</item>
+        <item>Deck/Pool Building</item>
+        <item>Dice Rolling</item>
+        <item>Grid Movement</item>
+        <item>Hand Management</item>
+        <item>Hex-and=Counter</item>
+        <item>Line Drawing</item>
+        <item>Memory</item>
+        <item>Modular Board</item>
+        <item>Paper-and-Pencil</item>
+        <item>Partnerships</item>
+        <item>Pattern Building</item>
+        <item>Pattern Recognition</item>
+        <item>Pick-up and Deliver</item>
+        <item>Player Elimination</item>
+        <item>Point to Point Movement</item>
+        <item>Press your Luck</item>
+        <item>Rock-Paper-Scissors</item>
+        <item>Role Playing</item>
+        <item>Roll/Spin and Move</item>
+        <item>Route/Network Building</item>
+        <item>Secret Unit Deployment</item>
+        <item>Set Collection</item>
+        <item>Simulation</item>
+        <item>Simultaneous Action Selection</item>
+        <item>Singing</item>
+        <item>Stock Holding</item>
+        <item>Storytelling</item>
+        <item>Take That</item>
+        <item>Tile Placement</item>
+        <item>Time Track</item>
+        <item>Trading</item>
+        <item>Trick-Taking</item>
+        <item>Variable Phase Order</item>
+        <item>Variable Player Powers</item>
+        <item>Voting</item>
+        <item>Worker Placement</item>
     </string-array>
 </resources>
