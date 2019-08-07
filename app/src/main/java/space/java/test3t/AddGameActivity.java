@@ -21,6 +21,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
     LinearLayout linearLayout;
     private static RatingBar diffRate;
     private static RatingBar learnRate;
+    private static RatingBar gameRating;
     private static Spinner typeSpinner;
     private static Spinner catSpinner;
     private static Spinner mechSpinner;
@@ -70,6 +71,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
     public void listenRatingBar(){
         diffRate = findViewById(R.id.ratingBar_difficulty);
         learnRate = findViewById(R.id.ratingBar_learningCurve);
+        gameRating = findViewById(R.id.ratingBar_gameRating);
 
         diffRate.setOnRatingBarChangeListener(
                 new RatingBar.OnRatingBarChangeListener() {
@@ -83,6 +85,16 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
 
 
         learnRate.setOnRatingBarChangeListener(
+                new RatingBar.OnRatingBarChangeListener() {
+                    @Override
+                    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                        String text = String.valueOf(rating);
+                        Toast.makeText(ratingBar.getContext(), text, Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+
+        gameRating.setOnRatingBarChangeListener(
                 new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
