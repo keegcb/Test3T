@@ -22,7 +22,8 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
     private static RatingBar diffRate;
     private static RatingBar learnRate;
     private static Spinner typeSpinner;
-    private static Button btnAddType;
+    private static Spinner catSpinner;
+    private static Spinner mechSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +61,10 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
         listenRatingBar();
         listenTypeSpinner();
         listenTypeBtn();
-
-
-
+        listenCategorySpinner();
+        listenCatBtn();
+        listenMechSpinner();
+        listenMechBtn();
     }
 
     public void listenRatingBar(){
@@ -93,7 +95,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
     }
 
     public void listenTypeBtn(){
-        linearLayout = findViewById(R.id.linearLayout_type);
+        final LinearLayout typeLayout = findViewById(R.id.linearLayout_type);
 
         final ArrayAdapter<CharSequence> adapterType = ArrayAdapter.createFromResource(this, R.array.spinner_game_type, android.R.layout.simple_spinner_item);
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -102,9 +104,47 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
         btnAddType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNewSpinner(linearLayout, adapterType);
+                addNewSpinner(typeLayout, adapterType);
             }
         });
+    }
+
+    public void listenCatBtn(){
+        final LinearLayout catLayout = findViewById(R.id.linearLayout_category);
+
+        final ArrayAdapter<CharSequence> adapterCat = ArrayAdapter.createFromResource(this, R.array.spinner_game_category, android.R.layout.simple_spinner_item);
+        adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Button btnAddCat = findViewById(R.id.btn_gameCategory);
+        btnAddCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addNewSpinner(catLayout, adapterCat);
+            }
+        });
+    }
+
+    public void listenMechBtn(){
+        final LinearLayout mechLayout = findViewById(R.id.linearLayout_mechanism);
+
+        final ArrayAdapter<CharSequence> adapterMech = ArrayAdapter.createFromResource(this, R.array.spinner_game_mechanism, android.R.layout.simple_spinner_item);
+        adapterMech.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Button btnAddMech = findViewById(R.id.btn_gameMechanism);
+        btnAddMech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addNewSpinner(mechLayout, adapterMech);
+            }
+        });
+    }
+
+    public void listenCategorySpinner(){
+        catSpinner = findViewById(R.id.spinner_category);
+        ArrayAdapter<CharSequence> adapterCat = ArrayAdapter.createFromResource(this, R.array.spinner_game_category, android.R.layout.simple_spinner_item);
+        adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        catSpinner.setAdapter(adapterCat);
+        catSpinner.setOnItemSelectedListener(this);
     }
 
     public void listenTypeSpinner(){
@@ -114,6 +154,14 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
         typeSpinner.setAdapter(adapterType);
         typeSpinner.setOnItemSelectedListener(this);
 
+    }
+
+    public void listenMechSpinner(){
+        mechSpinner = findViewById(R.id.spinner_mechanism);
+        ArrayAdapter<CharSequence> adapterMech = ArrayAdapter.createFromResource(this, R.array.spinner_game_mechanism, android.R.layout.simple_spinner_item);
+        adapterMech.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mechSpinner.setAdapter(adapterMech);
+        mechSpinner.setOnItemSelectedListener(this);
     }
 
     public void addNewSpinner(LinearLayout layout, final ArrayAdapter<CharSequence> adapter){
@@ -131,7 +179,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0,convertDpToPixel(8), 0, 0);
+        params.setMargins(0,convertDpToPixel(8), 0, convertDpToPixel(8));
 
         nextSpinner.setLayoutParams(params);
 
