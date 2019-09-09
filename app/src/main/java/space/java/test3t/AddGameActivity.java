@@ -11,12 +11,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddGameActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    DatabaseHelper gameDB;
 
     LinearLayout linearLayout;
     private static RatingBar diffRate;
@@ -25,6 +28,12 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
     private static Spinner typeSpinner;
     private static Spinner catSpinner;
     private static Spinner mechSpinner;
+    Button btnAddGameData;
+    EditText editGame, editPublisher;
+    Spinner spinnerMinSeat, spinnerMaxSeat, spinnerMinTime, spinnerMaxTime;
+    String textDiffRate;
+    String textLearnRate;
+    String textGameRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,27 +42,31 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
         Toolbar toolbar = findViewById(R.id.toolbar_new_game);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Add Game to Collection");
+        gameDB = new DatabaseHelper(this);
 
+        editGame = findViewById(R.id.editText_gameTitle);
+        editPublisher = findViewById(R.id.editText_publisher);
+        btnAddGameData = findViewById(R.id.button_addGame);
 
-        Spinner spinnerMinSeat = findViewById(R.id.spinner_minSeat);
+        spinnerMinSeat = findViewById(R.id.spinner_minSeat);
         ArrayAdapter<CharSequence> adapterMinS = ArrayAdapter.createFromResource(this, R.array.spinner_min_seats, android.R.layout.simple_spinner_item);
         adapterMinS.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMinSeat.setAdapter(adapterMinS);
         spinnerMinSeat.setOnItemSelectedListener(this);
 
-        Spinner spinnerMaxSeat = findViewById(R.id.spinner_maxSeat);
+        spinnerMaxSeat = findViewById(R.id.spinner_maxSeat);
         ArrayAdapter<CharSequence> adapterMaxS = ArrayAdapter.createFromResource(this, R.array.spinner_max_seats, android.R.layout.simple_spinner_item);
         adapterMaxS.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMaxSeat.setAdapter(adapterMaxS);
         spinnerMaxSeat.setOnItemSelectedListener(this);
 
-        Spinner spinnerMinTime = findViewById(R.id.spinner_minTime);
+        spinnerMinTime = findViewById(R.id.spinner_minTime);
         ArrayAdapter<CharSequence> adapterMinT = ArrayAdapter.createFromResource(this, R.array.spinner_play_time, android.R.layout.simple_spinner_item);
         adapterMinT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMinTime.setAdapter(adapterMinT);
         spinnerMinTime.setOnItemSelectedListener(this);
 
-        Spinner spinnerMaxTime = findViewById(R.id.spinner_maxTime);
+        spinnerMaxTime = findViewById(R.id.spinner_maxTime);
         ArrayAdapter<CharSequence> adapterMaxT = ArrayAdapter.createFromResource(this, R.array.spinner_play_time, android.R.layout.simple_spinner_item);
         adapterMaxT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMaxTime.setAdapter(adapterMaxT);
@@ -66,6 +79,8 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
         listenCatBtn();
         listenMechSpinner();
         listenMechBtn();
+
+        AddGameData();
     }
 
     public void listenRatingBar(){
@@ -77,8 +92,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
                 new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                        String text = String.valueOf(rating);
-                        Toast.makeText(ratingBar.getContext(), text, Toast.LENGTH_SHORT).show();
+                        textDiffRate = String.valueOf(rating);
                     }
                 }
         );
@@ -88,8 +102,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
                 new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                        String text = String.valueOf(rating);
-                        Toast.makeText(ratingBar.getContext(), text, Toast.LENGTH_SHORT).show();
+                        textLearnRate = String.valueOf(rating);
                     }
                 }
         );
@@ -98,8 +111,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
                 new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                        String text = String.valueOf(rating);
-                        Toast.makeText(ratingBar.getContext(), text, Toast.LENGTH_SHORT).show();
+                        textGameRate = String.valueOf(rating);
                     }
                 }
         );
@@ -212,6 +224,23 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void AddGameData(){
+        btnAddGameData.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v){
+                        boolean isInserted = gameDB.insertGameData(editGame.getText().toString(), spinnerMinSeat.getSelectedItem().toString(), spinnerMaxSeat.getSelectedItem().toString(),
+                                spinnerMinTime.getSelectedItem().toString(), spinnerMaxTime.getSelectedItem().toString(),
+                                String.valueOf(diffRate.getRating()), String.valueOf(learnRate.getRating()), editPublisher.getText().toString(), String.valueOf(gameRating.getRating()));
+                        if(isInserted = true)
+                            Toast.makeText(AddGameActivity.this, "Game Added to Collection", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(AddGameActivity.this, "Game NOT Added", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
     }
 
 

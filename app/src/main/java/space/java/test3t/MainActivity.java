@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentGroup = new Intent(this, AddGroupActivity.class);
                 startActivity(intentGroup);
                 return true;
+            case R.id.action_game_library:
+                Intent intentLibrary = new Intent(this, GameLibraryActivity.class);
+                startActivity(intentLibrary);
+                return true;
             case R.id.action_settings:
                 System.out.println("No settings page set up yet");
             default:

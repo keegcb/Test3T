@@ -22,6 +22,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_game_library"
+        android:actionLayout="@layout/content_game_library"
+        android:title="Game Library"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

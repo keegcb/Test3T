@@ -8,6 +8,7 @@
     <string name="title_activity_add_player">AddPlayerActivity</string>
     <string name="title_activity_add_group">AddGroupActivity</string>
     <string name="toolbar_new_game">New Game</string>
+    <string name="title_activity_game_library">GameLibraryActivity</string>
     <string-array name="spinner_min_seats">
         <item></item>
         <item>1</item>

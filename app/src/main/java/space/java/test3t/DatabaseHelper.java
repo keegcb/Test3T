@@ -1,5 +1,6 @@
 package space.java.test3t;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -125,5 +126,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MECHANISM);
         onCreate(db);
+    }
+
+    public boolean insertGameData(String name, String seatMin, String seatMax, String lenMin, String lenMax, String difficutly, String learnDiff, String publisher, String rating){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_GAME_NAME,name);
+        contentValues.put(COL_SEAT_MIN,seatMin);
+        contentValues.put(COL_SEAT_MAX,seatMax);
+        contentValues.put(COL_LENG_MIN,lenMin);
+        contentValues.put(COL_LENG_MAX,lenMax);
+        contentValues.put(COL_DIFF,difficutly);
+        contentValues.put(COL_LEARN_DIFF,learnDiff);
+        contentValues.put(COL_PUBLISHER,publisher);
+        contentValues.put(COL_RATE,rating);
+        long result = db.insert(TABLE_GAME, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertPlayerData(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_PLAYER_NAME,name);
+        long result = db.insert(TABLE_PLAYER, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 }
