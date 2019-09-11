@@ -8,20 +8,33 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+/*
+Class that handles the moving data from GameItem into the CardView and then handles
+putting the Card View items into the RecyclerView
+ */
+
 public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameViewHolder> {
+    private ArrayList<GameItem> mGameList;
 
     public static class GameViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView mImageView;
-        public TextView mTextView1;
-        public TextView mTextView2;
+        public TextView mTitle;
+        public TextView mPublisher;
 
         public GameViewHolder(@NonNull View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView_card);
-            mTextView1 = itemView.findViewById(R.id.textView_gameCard);
-            mTextView2 = itemView.findViewById(R.id.textView_attributeCard);
+            mTitle = itemView.findViewById(R.id.textView_title_card);
+            mPublisher = itemView.findViewById(R.id.textView_publisher_card);
         }
+    }
+
+    //ArrayList that holds GameItem class (data sets) for distribution into views
+    public GameItemAdapter(ArrayList<GameItem> gameList){
+        mGameList = gameList;
     }
 
     @NonNull
@@ -33,12 +46,16 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GameViewHolder gameViewHolder, int i) {
+    public void onBindViewHolder(@NonNull GameViewHolder holder, int position) {
+        GameItem currentGameItem = mGameList.get(position);
 
+        holder.mImageView.setImageResource(currentGameItem.getImageResource());
+        holder.mTitle.setText(currentGameItem.getText1());
+        holder.mPublisher.setText(currentGameItem.getText2());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mGameList.size();
     }
 }

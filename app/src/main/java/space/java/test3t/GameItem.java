@@ -1,14 +1,17 @@
 package space.java.test3t;
 
+/*
+Class that holds the generic data that is put into the Card View in the RecyclerView
+ */
 public class GameItem {
     private int mImageResource;
-    private String mText1;
-    private String mText2;
+    private String mTitle;
+    private String mPublisher;
 
-    public GameItem(int imageResource, String text1, String text2){
+    public GameItem(int imageResource, String title, String publisher){
         mImageResource = imageResource;
-        mText1 = text1;
-        mText2 = text2;
+        mTitle = title;
+        mPublisher = publisher;
     }
 
     public int getImageResource(){
@@ -16,10 +19,10 @@ public class GameItem {
     }
 
     public String getText1(){
-        return mText1;
+        return mTitle;
     }
 
     public String getText2(){
-        return mText2;
+        return mPublisher;
     }
 }

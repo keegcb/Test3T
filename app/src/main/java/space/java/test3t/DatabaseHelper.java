@@ -161,7 +161,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getGameData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT "+COL_GAME_NAME+" FROM "+TABLE_GAME,null);
+        Cursor res = db.rawQuery("SELECT "+COL_GAME_NAME+", "+COL_PUBLISHER+" FROM "+TABLE_GAME+";",null);
         return res;
     }
 }

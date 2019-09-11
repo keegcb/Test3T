@@ -19,6 +19,7 @@
         android:fontFamily="@font/doppio_one"
         android:text="Title:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/editText_gameTitle"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +33,7 @@
         android:ems="10"
         android:hint="Enter Game Title"
         android:inputType="textPersonName"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView_gameTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,20 +57,76 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:backgroundTint="@color/colorPrimary">
+                android:background="@color/colorPrimary">
 
-                <TextView
-                    android:id="@+id/textView_publisher"
+                <Button
+                    android:id="@+id/btn_gameType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Game Type"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_learningCurve" />
+
+                <Button
+                    android:id="@+id/btn_gameCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Categories"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_type" />
+
+                <Button
+                    android:id="@+id/btn_gameMechanism"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Mechanism"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_category" />
+
+                <Button
+                    android:id="@+id/button_addGame"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Publisher:"
-                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="72dp"
+                    android:background="#F44336"
+                    android:fontFamily="@font/doppio_one"
+                    android:text="Add Game"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/ratingBar_gameRating" />
 
                 <EditText
                     android:id="@+id/editText_publisher"
@@ -79,185 +137,10 @@
                     android:ems="10"
                     android:hint="Enter Publisher Name"
                     android:inputType="textPersonName"
+                    android:textColor="@android:color/black"
                     app:layout_constraintBaseline_toBaselineOf="@+id/textView_publisher"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView_publisher" />
-
-                <TextView
-                    android:id="@+id/textView_numberSeats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="32dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Number of Players:"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_publisher" />
-
-                <TextView
-                    android:id="@+id/textView_minSeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Min"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_numberSeats" />
-
-                <Spinner
-                    android:id="@+id/spinner_minSeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:dropDownWidth="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/textView_minSeat"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_numberSeats" />
-
-                <TextView
-                    android:id="@+id/textView_maxSeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Max"
-                    android:textSize="18sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView_minSeat"
-                    app:layout_constraintStart_toEndOf="@id/spinner_minSeat" />
-
-                <Spinner
-                    android:id="@+id/spinner_maxSeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toEndOf="@id/textView_maxSeat"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_numberSeats" />
-
-                <TextView
-                    android:id="@+id/textView_playTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Estimated Play Time:"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_minSeat" />
-
-                <TextView
-                    android:id="@+id/textView_minTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Min"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_playTime" />
-
-                <Spinner
-                    android:id="@+id/spinner_minTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toEndOf="@id/textView_minTime"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_playTime" />
-
-                <TextView
-                    android:id="@+id/textView_maxTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Max"
-                    android:textSize="18sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView_minTime"
-                    app:layout_constraintStart_toEndOf="@id/spinner_minTime" />
-
-                <Spinner
-                    android:id="@+id/spinner_maxTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toEndOf="@id/textView_maxTime"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_playTime" />
-
-                <TextView
-                    android:id="@+id/textView_difficulty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="32dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Difficulty:"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_minTime" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar_difficulty"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:isIndicator="false"
-                    android:numStars="5"
-                    android:progressTint="@color/colorAccent"
-                    android:stepSize="1"
-                    app:layout_constraintStart_toEndOf="@+id/textView_difficulty"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_minTime" />
-
-                <TextView
-                    android:id="@+id/textView_learningCurve"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="32dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Curve:"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_difficulty" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar_learningCurve"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:isIndicator="false"
-                    android:numStars="5"
-                    android:progressTint="@color/colorAccent"
-                    android:stepSize="1"
-                    app:layout_constraintStart_toEndOf="@+id/textView_learningCurve"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_difficulty" />
-
-                <Button
-                    android:id="@+id/btn_gameType"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Game Type"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_learningCurve" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout_type"
@@ -279,23 +162,6 @@
                         android:spinnerMode="dropdown" />
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/btn_gameCategory"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Categories"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_type" />
-
                 <LinearLayout
                     android:id="@+id/linearLayout_category"
                     android:layout_width="match_parent"
@@ -315,23 +181,6 @@
                         android:layout_marginBottom="8dp"
                         android:spinnerMode="dropdown" />
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_gameMechanism"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Mechanism"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_category" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout_mechanism"
@@ -353,17 +202,33 @@
                         android:spinnerMode="dropdown" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView_rating"
+                <RatingBar
+                    android:id="@+id/ratingBar_difficulty"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/autour_one"
-                    android:text="Rating"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_mechanism" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:isIndicator="false"
+                    android:numStars="5"
+                    android:progressTint="@color/colorAccent"
+                    android:stepSize="1"
+                    app:layout_constraintStart_toEndOf="@+id/textView_difficulty"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_minTime" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar_learningCurve"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:isIndicator="false"
+                    android:numStars="5"
+                    android:progressTint="@color/colorAccent"
+                    android:stepSize="1"
+                    app:layout_constraintStart_toEndOf="@+id/textView_learningCurve"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_difficulty" />
 
                 <RatingBar
                     android:id="@+id/ratingBar_gameRating"
@@ -375,26 +240,174 @@
                     android:numStars="10"
                     android:progressTint="@color/colorAccent"
                     android:stepSize="1"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView_rating" />
 
-                <Button
-                    android:id="@+id/button_addGame"
+                <Spinner
+                    android:id="@+id/spinner_minSeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="72dp"
-                    android:backgroundTint="@color/design_default_color_primary"
-                    android:fontFamily="@font/doppio_one"
-                    android:text="Add Game"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:dropDownWidth="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/textView_minSeat"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_numberSeats" />
+
+                <Spinner
+                    android:id="@+id/spinner_maxSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toEndOf="@id/textView_maxSeat"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_numberSeats" />
+
+                <Spinner
+                    android:id="@+id/spinner_minTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toEndOf="@id/textView_minTime"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_playTime" />
+
+                <Spinner
+                    android:id="@+id/spinner_maxTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toEndOf="@id/textView_maxTime"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_playTime" />
+
+                <TextView
+                    android:id="@+id/textView_publisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Publisher:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_numberSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Number of Players:"
+                    android:textColor="@android:color/black"
                     android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_publisher" />
+
+                <TextView
+                    android:id="@+id/textView_minSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Min"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_numberSeats" />
+
+                <TextView
+                    android:id="@+id/textView_maxSeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Max"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView_minSeat"
+                    app:layout_constraintStart_toEndOf="@id/spinner_minSeat" />
+
+                <TextView
+                    android:id="@+id/textView_playTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Estimated Play Time:"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_minSeat" />
+
+                <TextView
+                    android:id="@+id/textView_minTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Min"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_playTime" />
+
+                <TextView
+                    android:id="@+id/textView_maxTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Max"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView_minTime"
+                    app:layout_constraintStart_toEndOf="@id/spinner_minTime" />
+
+                <TextView
+                    android:id="@+id/textView_difficulty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Difficulty:"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_minTime" />
+
+                <TextView
+                    android:id="@+id/textView_learningCurve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Curve:"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_difficulty" />
+
+                <TextView
+                    android:id="@+id/textView_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/autour_one"
+                    android:text="Rating"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ratingBar_gameRating" />
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_mechanism" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
