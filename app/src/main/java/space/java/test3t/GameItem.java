@@ -13,9 +13,9 @@ public class GameItem {
     private String mTimeMax;
     private String mDifficulty;
     private String mLearnDiff;
-    private String mRating;
+    private float mRating;
 
-    public GameItem(String title, String seatMin, String seatMax, String timeMin, String timeMax, String difficulty, String learn, String publisher, String rating){
+    public GameItem(String title, String seatMin, String seatMax, String timeMin, String timeMax, String difficulty, String learn, String publisher, float rating){
         mTitle = title;
         mPublisher = publisher;
         mSeatMin = seatMin;
@@ -42,13 +42,13 @@ public class GameItem {
 
     public String getTimeMin(){return mTimeMin;}
 
-    public String getmTimeMax(){return mTimeMax;}
+    public String getTimeMax(){return mTimeMax;}
 
     public String getDiff(){return mDifficulty;}
 
     public String getLearn(){return mLearnDiff;}
 
-    public String getmRating(){return mRating;}
+    public float getRating(){return mRating;}
 
 
 }

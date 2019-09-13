@@ -1,6 +1,7 @@
 package space.java.test3t;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,9 +40,7 @@ public class GameLibraryActivity extends AppCompatActivity {
         btnRefresh = findViewById(R.id.action_game_library);
 
         ArrayList<GameItem> gameList = new ArrayList<>();
-        gameList.add(new GameItem(R.drawable.ic_casino_black_24dp, "Game 1", "Attribute 1"));
-        gameList.add(new GameItem(R.drawable.ic_extension_black_24dp, "Game 2", "Attribute 2"));
-        gameList.add(new GameItem(R.drawable.ic_casino_black_24dp, "Game 3", "Attribute 3"));
+
 
         mRecyclerView = findViewById(R.id.recyclerview_game_library);
         mRecyclerView.setHasFixedSize(true);
@@ -52,30 +51,6 @@ public class GameLibraryActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
     }
-
-    /*
-    public void RefreshGameData(){
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Cursor res = gameDB.getGameData();
-                 if(res.getCount()==0){
-                     showDataMessage("Error", "Nothing found");
-                     return;
-                 }
-
-                 StringBuffer buffer = new StringBuffer();
-                 while (res.moveToNext()){
-                     buffer.append(res.getString(0));
-                 }
-
-                 //show data
-                showDataMessage("Games", buffer.toString());
-            }
-        });
-    }
-
-     */
 
     public void showDataMessage(String title, String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

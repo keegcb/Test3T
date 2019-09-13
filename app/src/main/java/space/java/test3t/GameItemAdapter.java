@@ -64,6 +64,13 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameVi
 
         holder.mTitle.setText(currentGameItem.getTitle());
         holder.mPublisher.setText(currentGameItem.getPublisher());
+        holder.mSeatMin.setText(currentGameItem.getSeatMin());
+        holder.mSeatMax.setText(currentGameItem.getSeatMax());
+        holder.mTimeMin.setText(currentGameItem.getTimeMin());
+        holder.mTimeMax.setText(currentGameItem.getTimeMax());
+        holder.mDiff.setText(currentGameItem.getDiff());
+        holder.mLearn.setText(currentGameItem.getLearn());
+        holder.mRating.setRating(currentGameItem.getRating());
     }
 
     @Override
