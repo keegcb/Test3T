@@ -20,6 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class GameLibraryActivity extends AppCompatActivity {
+    private SQLiteDatabase mDatabase;
+    private GameItemAdapter gAdapter;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -45,11 +47,15 @@ public class GameLibraryActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerview_game_library);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new GameItemAdapter(gameList);
+        mAdapter = new GameItemAdapter(this, getAllGames());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+    }
+
+    private Cursor getAllGames(){
+        return gameDB.getGameData();
     }
 
     public void showDataMessage(String title, String Message){

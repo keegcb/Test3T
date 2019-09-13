@@ -1,5 +1,7 @@
 package space.java.test3t;
 
+import android.content.Context;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +20,13 @@ putting the Card View items into the RecyclerView
 
 public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameViewHolder> {
     private ArrayList<GameItem> mGameList;
+    private Context mContext;
+    private Cursor mCursor;
+
+    public GameItemAdapter(Context context, Cursor cursor){
+        mContext = context;
+        mCursor = cursor;
+    }
 
     public static class GameViewHolder extends RecyclerView.ViewHolder{
 
@@ -46,35 +55,57 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameVi
     }
 
     //ArrayList that holds GameItem class (data sets) for distribution into views
-    public GameItemAdapter(ArrayList<GameItem> gameList){
+    /*public GameItemAdapter(ArrayList<GameItem> gameList){
         mGameList = gameList;
-    }
+    }*/
 
     @NonNull
     @Override
     public GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_item, parent, false);
-        GameViewHolder gvh = new GameViewHolder(v);
-        return gvh;
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        View view = inflater.inflate(R.layout.game_item, parent, false);
+        return new GameViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GameViewHolder holder, int position) {
-        GameItem currentGameItem = mGameList.get(position);
+        if(!mCursor.moveToPosition(position)){
+            return;
+        }
+        String game = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_GAME_NAME));
+        String seatmin = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_SEAT_MIN));
+        String seatmax = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_SEAT_MAX));
+        String timemin = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_LENG_MIN));
+        String timemax = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_LENG_MAX));
+        String difficulty = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_DIFF));
+        String learn = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_LEARN_DIFF));
+        String publisher = mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_PUBLISHER));
+        float rating = mCursor.getFloat(mCursor.getColumnIndex(DatabaseHelper.COL_RATE));
 
-        holder.mTitle.setText(currentGameItem.getTitle());
-        holder.mPublisher.setText(currentGameItem.getPublisher());
-        holder.mSeatMin.setText(currentGameItem.getSeatMin());
-        holder.mSeatMax.setText(currentGameItem.getSeatMax());
-        holder.mTimeMin.setText(currentGameItem.getTimeMin());
-        holder.mTimeMax.setText(currentGameItem.getTimeMax());
-        holder.mDiff.setText(currentGameItem.getDiff());
-        holder.mLearn.setText(currentGameItem.getLearn());
-        holder.mRating.setRating(currentGameItem.getRating());
+        holder.mTitle.setText(game);
+        holder.mPublisher.setText(publisher);
+        holder.mSeatMin.setText(seatmin);
+        holder.mSeatMax.setText(seatmax);
+        holder.mTimeMin.setText(timemin);
+        holder.mTimeMax.setText(timemax);
+        holder.mDiff.setText(difficulty);
+        holder.mLearn.setText(learn);
+        holder.mRating.setRating(rating);
     }
 
     @Override
     public int getItemCount() {
-        return mGameList.size();
+        return mCursor.getCount();
+    }
+
+    public void swapCursor(Cursor newCursor){
+        if(mCursor != null){
+            mCursor.close();
+        }
+
+        mCursor = newCursor;
+        if(newCursor != null){
+            notifyDataSetChanged();
+        }
     }
 }
