@@ -21,9 +21,10 @@
 
         <ImageView
             android:id="@+id/imageView_card"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="2dp" />
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:padding="2dp"
+            app:srcCompat="@drawable/ic_casino_black_24dp" />
 
         <TextView
             android:id="@+id/textView_title_card"
@@ -33,7 +34,7 @@
             android:layout_toEndOf="@id/imageView_card"
             android:text="Game Title"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
@@ -45,6 +46,180 @@
             android:layout_toEndOf="@+id/imageView_card"
             android:text="Publisher"
             android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imageView_seat_card"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/textView_publisher_card"
+            android:layout_alignStart="@id/textView_title_card"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_group_black_24dp" />
+
+        <TextView
+            android:id="@+id/textView_seatMin_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_seat_card"
+            android:layout_margin="4dp"
+            android:layout_toEndOf="@id/imageView_seat_card"
+            android:text="2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_dash1_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_seat_card"
+            android:layout_toEndOf="@id/textView_seatMin_card"
+            android:layout_margin="4dp"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_seatMax_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_seat_card"
+            android:layout_toEndOf="@id/textView_dash1_card"
+            android:layout_margin="4dp"
+            android:text="6"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView_time_card"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignBottom="@id/imageView_seat_card"
+            android:layout_marginStart="40dp"
+            android:layout_toEndOf="@id/textView_seatMax_card"
+            app:srcCompat="@drawable/ic_query_builder_black_24dp" />
+
+        <TextView
+            android:id="@+id/textView_timeMin_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_time_card"
+            android:layout_toEndOf="@id/imageView_time_card"
+            android:layout_margin="4dp"
+            android:text="40"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_dash2_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_time_card"
+            android:layout_toEndOf="@id/textView_timeMin_card"
+            android:layout_margin="4dp"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_timeMax_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_time_card"
+            android:layout_toEndOf="@id/textView_dash2_card"
+            android:layout_margin="4dp"
+            android:text="120"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView_diff_card"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/imageView_seat_card"
+            android:layout_alignStart="@id/textView_title_card"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_school_black_24dp" />
+
+        <TextView
+            android:id="@+id/textView_diff1_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_diff_card"
+            android:layout_toEndOf="@id/imageView_diff_card"
+            android:layout_margin="4dp"
+            android:text="2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_slash1_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_diff_card"
+            android:layout_toEndOf="@id/textView_diff1_card"
+            android:layout_margin="4dp"
+            android:text="/"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_diff2_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_diff_card"
+            android:layout_toEndOf="@id/textView_slash1_card"
+            android:layout_margin="4dp"
+            android:text="5"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView_learn_card"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@id/imageView_time_card"
+            android:layout_alignBottom="@id/imageView_diff_card"
+            app:srcCompat="@drawable/ic_child_care_black_24dp" />
+
+        <TextView
+            android:id="@+id/textView_learn1_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_learn_card"
+            android:layout_toEndOf="@id/imageView_learn_card"
+            android:layout_margin="4dp"
+            android:text="2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_slash2_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_diff_card"
+            android:layout_toEndOf="@id/textView_learn1_card"
+            android:layout_margin="4dp"
+            android:text="/"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView_learn2_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView_learn_card"
+            android:layout_toEndOf="@id/textView_slash2_card"
+            android:layout_margin="4dp"
+            android:text="5"
+            android:textSize="20sp" />
+
+        <RatingBar
+            android:id="@+id/ratingBar_gameRating_card"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView_diff_card"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:max="10"
+            android:numStars="10"
+            android:progressTint="@color/colorAccent"
+            android:stepSize="1" />
+
 
     </RelativeLayout>
 

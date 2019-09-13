@@ -234,7 +234,7 @@ public class AddGameActivity extends AppCompatActivity implements AdapterView.On
                         boolean isInserted = gameDB.insertGameData(editGame.getText().toString(), spinnerMinSeat.getSelectedItem().toString(), spinnerMaxSeat.getSelectedItem().toString(),
                                 spinnerMinTime.getSelectedItem().toString(), spinnerMaxTime.getSelectedItem().toString(),
                                 String.valueOf(diffRate.getRating()), String.valueOf(learnRate.getRating()), editPublisher.getText().toString(), String.valueOf(gameRating.getRating()));
-                        if(isInserted = true)
+                        if(isInserted == true)
                             Toast.makeText(AddGameActivity.this, "Game Added to Collection", Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(AddGameActivity.this, "Game NOT Added", Toast.LENGTH_LONG).show();

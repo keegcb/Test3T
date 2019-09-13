@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,15 +21,27 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameVi
 
     public static class GameViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView mImageView;
         public TextView mTitle;
         public TextView mPublisher;
+        public TextView mSeatMin;
+        public TextView mSeatMax;
+        public TextView mTimeMin;
+        public TextView mTimeMax;
+        public TextView mDiff;
+        public TextView mLearn;
+        public RatingBar mRating;
 
         public GameViewHolder(@NonNull View itemView) {
             super(itemView);
-            mImageView = itemView.findViewById(R.id.imageView_card);
             mTitle = itemView.findViewById(R.id.textView_title_card);
             mPublisher = itemView.findViewById(R.id.textView_publisher_card);
+            mSeatMin = itemView.findViewById(R.id.textView_seatMin_card);
+            mSeatMax = itemView.findViewById(R.id.textView_seatMax_card);
+            mTimeMin = itemView.findViewById(R.id.textView_timeMin_card);
+            mTimeMax = itemView.findViewById(R.id.textView_timeMax_card);
+            mDiff = itemView.findViewById(R.id.textView_diff1_card);
+            mLearn = itemView.findViewById(R.id.textView_learn1_card);
+            mRating = itemView.findViewById(R.id.ratingBar_gameRating_card);
         }
     }
 
@@ -49,9 +62,8 @@ public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameVi
     public void onBindViewHolder(@NonNull GameViewHolder holder, int position) {
         GameItem currentGameItem = mGameList.get(position);
 
-        holder.mImageView.setImageResource(currentGameItem.getImageResource());
-        holder.mTitle.setText(currentGameItem.getText1());
-        holder.mPublisher.setText(currentGameItem.getText2());
+        holder.mTitle.setText(currentGameItem.getTitle());
+        holder.mPublisher.setText(currentGameItem.getPublisher());
     }
 
     @Override
