@@ -164,4 +164,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("SELECT "+COL_GAME_NAME+", "+COL_SEAT_MIN+", "+COL_SEAT_MAX+", "+COL_LENG_MIN+", "+COL_LENG_MAX+", "+COL_DIFF+", "+COL_LEARN_DIFF+", "+COL_PUBLISHER+", "+COL_RATE+" FROM "+TABLE_GAME+";",null);
         return res;
     }
+
+    public Cursor getPlayerData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT "+COL_PLAYER_NAME+" FROM "+TABLE_PLAYER+";", null);
+        return res;
+    }
 }

@@ -19,7 +19,6 @@ putting the Card View items into the RecyclerView
  */
 
 public class GameItemAdapter extends RecyclerView.Adapter<GameItemAdapter.GameViewHolder> {
-    private ArrayList<GameItem> mGameList;
     private Context mContext;
     private Cursor mCursor;
 

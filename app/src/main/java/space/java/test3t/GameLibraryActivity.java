@@ -41,9 +41,6 @@ public class GameLibraryActivity extends AppCompatActivity {
 
         btnRefresh = findViewById(R.id.action_game_library);
 
-        ArrayList<GameItem> gameList = new ArrayList<>();
-
-
         mRecyclerView = findViewById(R.id.recyclerview_game_library);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
