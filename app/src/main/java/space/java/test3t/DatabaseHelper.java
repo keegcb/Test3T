@@ -159,6 +159,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean insertGroupData(int partyId, int playerId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_PARTY_ID, partyId);
+        contentValues.put(COL_PLAYER_ID, playerId);
+        long result = db.insert(TABLE_PARTY, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
     public Cursor getGameData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT "+COL_GAME_NAME+", "+COL_SEAT_MIN+", "+COL_SEAT_MAX+", "+COL_LENG_MIN+", "+COL_LENG_MAX+", "+COL_DIFF+", "+COL_LEARN_DIFF+", "+COL_PUBLISHER+", "+COL_RATE+" FROM "+TABLE_GAME+";",null);
@@ -170,4 +182,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("SELECT "+COL_PLAYER_NAME+" FROM "+TABLE_PLAYER+";", null);
         return res;
     }
+
+    public Cursor getIdPlayerData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT "+COL_PLAYER_ID+", "+COL_PLAYER_NAME+" FROM "+TABLE_PLAYER+";", null);
+        return res;
+    }
+
+    /*
+    Next step is finding distinct groups with one query and adding the results to an Array
+    then to query for players in the distinct groups that were contained in the array
+
+    SELECT party_id
+    FROM party
+    GROUP BY party_id;
+
+    SELECT player.player_name
+    FROM party
+    INNER JOIN player ON party.player_id=player.player_id
+    WHERE party_id = <party_id>;
+
+    *Replace <party_id> with id contained in array from first query
+     */
+
 }
